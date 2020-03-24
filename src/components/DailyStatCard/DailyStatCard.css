@@ -1,0 +1,23 @@
+.DailyStatCard {
+    border: rgb(158, 157, 157) 1px solid;
+    display: inline-block;
+    font-family: 'Open Sans', sans-serif;
+    transform: scale(0.5, 0.5);
+    font-size: x-large;
+}
+
+.DailyStatCard:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+.DailyLow{
+    color: gray;
+    padding: 0 10px 0; /*puts space between high and low temps*/
+}
+
+.Temps{
+    display: flex;
+    flex-direction: row; /*places temps next to each other*/
+    justify-content: center; /*places temps in center of stat card*/
+}
+

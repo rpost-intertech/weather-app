@@ -1,0 +1,4 @@
+.WeeklyStats {
+    display: flex;
+    flex-wrap: wrap;
+}
