@@ -1,0 +1,31 @@
+.HourlyStatRow {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 0%;
+    left:0;
+    top: 0;
+    padding: 32px 16px;
+    background-image: linear-gradient(to right, rgb(241, 240, 240), rgb(214, 212, 212));
+    transition: transform 0.3s ease-out;
+    border-bottom: steelblue 1px solid;
+    border-top: steelblue 1px solid;
+    max-height: 50px;
+}
+
+.DateTime {
+    font-family: Verdana;
+}
+
+.HourlyStatTemps {
+    color: black;
+    margin-left: -250px;
+    font-size: larger;
+}
+
+.HourlyWeatherImage {
+    float: left;
+    transform: scale(0.35, 0.35);
+    margin-top: -70px;
+}

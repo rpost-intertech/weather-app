@@ -1,7 +1,5 @@
 import React from 'react';
 import './DailyStatCard.css';
-import partialSun from '../../assets/images/partial_sun.png';
-import Clouds from '../../assets/images/cloudy.png';
 import WeatherImage from '../WeatherImage';
 
 

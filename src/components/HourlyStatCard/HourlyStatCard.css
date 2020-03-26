@@ -1,21 +1,4 @@
-.HourlyStatCard {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 50%;
-    left:0;
-    top: 0;
-    padding: 32px 16px;
-    background-color: rgb(206, 205, 205);
-    transition: transform 0.3s ease-out;
-}
-
-
-.Open {
-    transform: translateX(0);
-}
-
-.Close {
-    transform: translateX(-100%);
+.HourlyStats{
+    color:rgb(0, 60, 128);
+    overflow: scroll;
 }
