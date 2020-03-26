@@ -14,10 +14,12 @@ export const GenerateStatRowCard = (props) => {
     let WeatherArr = IterateWeatherDescArr(props.weatherDescArr);
     //clear out the jsx
     jsx = [];
+    let keyVal = 0;
 
-    for(let i=3; i<=10;i++){
+    for(let i=props.beginIndex; i<=props.endIndex;i++){
         jsx.push(
             <HourlyStatRow 
+            key={keyVal++}
             time={timeArr[i]}
             weather={WeatherArr[i]}
             tempF={tempFArr[i]}/>

@@ -14,7 +14,7 @@ class Layout extends Component {
         temp_maxArr: ['','','','','','',''],
         weather_descArr: ['','','','','','',''],
         dateArr: ['','','','','','',''],
-        showHourlyWeather: false
+        dayClickedIndex: 0
     }
 
     /**0,3,12,21,27*/
@@ -43,10 +43,6 @@ class Layout extends Component {
         return (<h1>hello</h1>);
     }
 
-    showHourlyWeatherHandler = () => {
-        let showHourlyWeather2 = this.state.showHourlyWeather;
-        this.setState({showHourlyWeather: !showHourlyWeather2});
-    }
 
     componentDidMount(){
         this.getWeatherFromFile();
@@ -81,9 +77,9 @@ class Layout extends Component {
                 temp_minArr={this.state.temp_minArr}
                 tempArr={this.state.tempArr}
                 weatherDescArr={this.state.weather_descArr}
-                clicked = {this.showHourlyWeatherHandler}
                 showHourlyWeather= {this.state.showHourlyWeather}
-                open = {this.state.showHourlyWeather} />
+                open = {this.state.showHourlyWeather}
+                dayClickedIndex={this.state.dayClickedIndex}/>
                 {/**getWeather={this.getWeather}*/} 
             </div>
       );

@@ -7,7 +7,7 @@ const DailyStatCard = (props) => {
 
         
         return (
-            <div className='DailyStatCard' onClick={props.clicked}>
+            <div className='DailyStatCard'  onClick={props.clicked}>
                 <p>{props.dayOfWeek}</p>
                 <div className='ForecastImg'>
                 <WeatherImage weatherDesc={props.weatherDesc} />
