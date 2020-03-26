@@ -4,6 +4,7 @@
     font-family: 'Open Sans', sans-serif;
     transform: scale(0.5, 0.5);
     font-size: x-large;
+    margin: -50px;
 }
 
 .DailyStatCard:hover {

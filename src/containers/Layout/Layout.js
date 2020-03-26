@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 /*import WeatherToday from '../../components/WeatherToday/WeatherToday';*/
 import WeeklyStats from '../../components/WeeklyStats/WeeklyStats';
-import ky from 'ky';
+/*import ky from 'ky';*/
 import weatherData from '../../assets/data/weather.json';
+import WeatherToday from '../../components/WeatherToday/WeatherToday';
+
 
 class Layout extends Component {
 
@@ -11,7 +13,8 @@ class Layout extends Component {
         temp_minArr: ['','','','','','',''],
         temp_maxArr: ['','','','','','',''],
         weather_descArr: ['','','','','','',''],
-        dateArr: ['','','','','','','']
+        dateArr: ['','','','','','',''],
+        showHourlyWeather: false
     }
 
     /**0,3,12,21,27*/
@@ -22,7 +25,7 @@ class Layout extends Component {
         let weather_descArr1 = ['','','','','','',''];
         let dateArr1 =  ['','','','','','',''];
         
-        for(let i=0; i<=39; i+=3){
+        for(let i=0; i<=39; i++){
             tempArr1[i] = weatherData.list[i].main.temp;   
             temp_minArr1[i] = weatherData.list[i].main.temp_min;
             temp_maxArr1[i] = weatherData.list[i].main.temp_max;
@@ -38,6 +41,11 @@ class Layout extends Component {
             dateArr: dateArr1
         })
         return (<h1>hello</h1>);
+    }
+
+    showHourlyWeatherHandler = () => {
+        let showHourlyWeather2 = this.state.showHourlyWeather;
+        this.setState({showHourlyWeather: !showHourlyWeather2});
     }
 
     componentDidMount(){
@@ -60,17 +68,22 @@ class Layout extends Component {
         })
     } */
 
-    /**<WeatherToday 
-                dayOfWeek={this.state.dayOfWeek} 
-                weatherForecast={this.state.weatherForecast} /> */
     render() {
       return(
           <div>
+              <WeatherToday 
+                dateArr={this.state.dateArr}
+                tempArr={this.state.tempArr}
+                weatherDescArr={this.state.weather_descArr} /> 
             <WeeklyStats
                 dateArr={this.state.dateArr} 
                 temp_maxArr={this.state.temp_maxArr}
                 temp_minArr={this.state.temp_minArr}
-                weatherDescArr={this.state.weather_descArr} />
+                tempArr={this.state.tempArr}
+                weatherDescArr={this.state.weather_descArr}
+                clicked = {this.showHourlyWeatherHandler}
+                showHourlyWeather= {this.state.showHourlyWeather}
+                open = {this.state.showHourlyWeather} />
                 {/**getWeather={this.getWeather}*/} 
             </div>
       );
