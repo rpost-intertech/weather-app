@@ -2,6 +2,12 @@ import React from 'react';
 import WeatherImage from '../WeatherImage';
 import './HourlyStatRow.css';
 
+/**
+ * This functional component displays weather information
+ * pertaining to a certain hour of a day
+ * @param {weather data} props including time, weather description
+ * and temperature
+ */
 const HourlyStatRow = (props) => {
     return (
         <div className='HourlyStatRow'>

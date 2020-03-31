@@ -3,9 +3,15 @@ import DailyStatCard from '../DailyStatCard/DailyStatCard';
 import './WeeklyStats.css';
 import {ConvertDayOfWeek} from '../Conversions/ConvertDayOfWeek';
 import {ConvertKelvinToFarhrenheit} from '../Conversions/ConvertKelvinToFahrenheit';
-import {IterateWeatherDescArr} from '../Conversions/IterateWeatherDesc';
+import {ConvertWeatherDescArr} from '../Conversions/ConvertWeatherDesc';
 import HourlyStatCard from '../../components/HourlyStatCard/HourlyStatCard'
 
+/**
+ * This class serves as a template for displaying the daily weather for each day
+ * in the 5-day weather forecast as well as the hourly weather for each day. It also
+ * uses imported Conversions functions to convert the weather data into the proper format
+ * to be displayed to each of the components on the page. 
+ */
 class WeeklyStats extends Component {
 
     state = {
@@ -13,6 +19,8 @@ class WeeklyStats extends Component {
         dayClicked: 0
     }
 
+    /**Handler used to determine if hourly weather whould be displayed 
+     * and which hourly weather for what day */
     showHourlyWeatherHandler = (index) => {
         let showHourlyWeather2 = this.state.showHourlyWeather;
         this.setState({showHourlyWeather: !showHourlyWeather2});
@@ -23,12 +31,15 @@ class WeeklyStats extends Component {
         let dayOfWeekArr = ConvertDayOfWeek(this.props.dateArr);
         let tempFMaxArr = ConvertKelvinToFarhrenheit(this.props.temp_maxArr);
         let tempFMinArr = ConvertKelvinToFarhrenheit(this.props.temp_minArr);
-        let weatherDescArr = IterateWeatherDescArr(this.props.weatherDescArr);
-         /*0,2,9,*/
+        let weatherDescArr = ConvertWeatherDescArr(this.props.weatherDescArr);
+        
     return (
         <div>
         <div className='WeeklyStats'>
-          {/** <button onClick={() => this.props.getWeather(9)}>See Weather</button> */} 
+            {/** The below indexes retrieve weather for a particular day. Since the weather data retrieved
+             * from the API is hourly, today's date recieves 3 separate times for today's weather, 5 separate
+             * times for the last day's weather, and 8 separate times for the days 2-4. 
+             */}
             <DailyStatCard 
                 dayOfWeek={dayOfWeekArr[0]} 
                 tempMax={tempFMaxArr[0]}

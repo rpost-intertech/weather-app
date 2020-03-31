@@ -1,5 +1,10 @@
+/**
+ * This helper function retrieves the time interval from the date
+ * string passed in
+ * @param {date} dateArr includes the date retrieved from the weather
+ * data file
+ */
 export const RetrieveTime = (dateArr) => {
-     
     let timeArr = ['','','','','','',''];
     
     dateArr.map((date, index) => {

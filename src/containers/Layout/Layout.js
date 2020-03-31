@@ -1,23 +1,26 @@
 import React, {Component} from 'react';
-/*import WeatherToday from '../../components/WeatherToday/WeatherToday';*/
 import WeeklyStats from '../../components/WeeklyStats/WeeklyStats';
-/*import ky from 'ky';*/
 import weatherData from '../../assets/data/weather.json';
 import WeatherToday from '../../components/WeatherToday/WeatherToday';
+/*import ky from 'ky'; to be used if importing data from API key*/
 
-
+/**
+ * This class is the main Layout Component class. It gives the entire layout
+ * of the Weather App page and manages state for temp and weather data. It
+ * also retrieves weather data from a file (and has the ability to retrieve
+ * weather data from OpenWeather API through commented portion below)
+ */
 class Layout extends Component {
 
     state = {
-        tempArr: ['','','','','','',''],
-        temp_minArr: ['','','','','','',''],
-        temp_maxArr: ['','','','','','',''],
-        weather_descArr: ['','','','','','',''],
-        dateArr: ['','','','','','',''],
-        dayClickedIndex: 0
+        tempArr: ['','','','','','',''], //main temp of each day
+        temp_minArr: ['','','','','','',''], //minimum temp of each day
+        temp_maxArr: ['','','','','','',''], //maximum temp of each day
+        weather_descArr: ['','','','','','',''], //weather description of each day
+        dateArr: ['','','','','','',''], //date of weather each day in 5 day forecast
+        dayClickedIndex: 0 //used to determine which day was clicked for hourly weather
     }
 
-    /**0,3,12,21,27*/
     getWeatherFromFile = () => {
         let tempArr1 = ['','','','','','',''];
         let temp_minArr1 = ['','','','','','',''];
@@ -39,16 +42,15 @@ class Layout extends Component {
             temp_maxArr: temp_maxArr1,
             weather_descArr: weather_descArr1,
             dateArr: dateArr1
-        })
-        return (<h1>hello</h1>);
+        })  
     }
 
 
     componentDidMount(){
-        this.getWeatherFromFile();
+        this.getWeatherFromFile(); //retrieve weather data from file after component is mounted
     }
   
-
+    /**Below gets weather data from OpenWeather API and is commented out due to limit in API calls with free version */
     /*getWeather = async (index) => {
         const json = await ky.get('http://api.openweathermap.org/data/2.5/forecast?q=Woodbury,us&APPID=7fba04545651c84ae5d290ad6231b39b').json();
         console.log(index);
@@ -80,7 +82,6 @@ class Layout extends Component {
                 showHourlyWeather= {this.state.showHourlyWeather}
                 open = {this.state.showHourlyWeather}
                 dayClickedIndex={this.state.dayClickedIndex}/>
-                {/**getWeather={this.getWeather}*/} 
             </div>
       );
     }
