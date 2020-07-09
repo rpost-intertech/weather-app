@@ -31,5 +31,5 @@ You will also see any lint errors in the console.
 
 ## Final Note
 
-This application was created by Rita Post to serve the purpose of understanding the basic fundamentals of React. Given the limited exposure to React at the time of this app's creation, Rita was unable to provide Testing, React Hooks, or error handling and data validation in this application. If time permits, these features will be added to this app at a future date.
+This application was created by Rita Post to serve the purpose of understanding the basic fundamentals of React. Given the limited exposure to React at the time of this app's creation, Rita was unable to provide Testing, React Hooks, Redux, or error handling and data validation in this application. If time permits, these features will be added to this app at a future date.
 
